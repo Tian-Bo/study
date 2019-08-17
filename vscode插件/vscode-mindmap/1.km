@@ -1,0 +1,22 @@
+{
+    "root": {
+        "data": {
+            "id": "bvg52tn1p000",
+            "created": 1562818940011,
+            "text": "设置"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "bvg530x339s0",
+                    "created": 1562818955856,
+                    "text": "认证"
+                },
+                "children": []
+            }
+        ]
+    },
+    "template": "default",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}

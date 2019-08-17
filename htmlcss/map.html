@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>测</h1>
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        (function getAddress(){
+            var resUrl = "http://apis.map.qq.com/ws/geocoder/v1";
+            var params = {
+                location: '26.690410,106.511078',
+                key: '3QDBZ-ILBKG-XNSQJ-ISXYB-WT4S2-LZFDS',
+                output: "jsonp"
+            };
+            $.get({
+                url: resUrl,
+                data: params,
+                dataType: 'jsonp',
+                success: res => { 
+                    console.log(res)
+                    console.log(res.result.address_component.province)
+                    console.log(res.result.address_component.city)
+                    console.log(res.result.address_component.district)
+                    console.log(res.result.formatted_addresses.recommend);
+                }
+            })
+        })()
+    </script>
+</body>
+</html>

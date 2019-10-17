@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div id="qrcodeTable"></div>
+<canvas id="c" width="600" height="500"></canvas>
+<div class="b">fsdfsdfsdfsdfds</div>
+
+<script src="./fabric.min.js"></script>
+<script src="./jquery.min.js"></script>
+<script type="text/javascript" src="http://jeromeetienne.github.io/jquery-qrcode/src/jquery.qrcode.js"></script>
+<script type="text/javascript" src="http://jeromeetienne.github.io/jquery-qrcode/src/qrcode.js"></script>
+<script>
+(function() {
+  let canvas = this.__canvas = new fabric.StaticCanvas('c');
+  let qrcode = this.__canvas = new fabric.StaticCanvas('b');
+
+  let url = 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2174909441,2495215020&fm=26&gp=0.jpg'
+
+  canvas.add(
+    new fabric.Rect({ top: 100, left: 100, width: 50, height: 50, fill: '#f55' }),
+    new fabric.Circle({ top: 140, left: 230, radius: 75, fill: 'green' }),
+    new fabric.Triangle({ top: 300, left: 210, width: 100, height: 100, fill: 'blue' }),
+    new fabric.Text('我在fontSize 20', { letf: 100, top: 100, fontSize: 18, fill: 'red' })
+  );
+
+  fabric.Image.fromURL(url, function(img) {
+    canvas.add(img.set({ left: 400, top: 350, angle: 30 }).scale(0.25));
+  });
+
+})();
+</script>
+</body>
+</html>

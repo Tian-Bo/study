@@ -1,0 +1,32 @@
+{
+    /** Easy Sass 插件 **/
+    // "easysass.compileAfterSave": true,
+
+    // "easysass.excludeRegex": "^_",
+
+    // "easysass.formats": [
+    //     {
+    //         "format": "expanded",
+    //         "extension": ".css"
+    //     }
+    // ],
+
+    // "easysass.targetDir": "hdg/shanghu_admin/css/",
+    // "window.zoomLevel": 0,
+
+    /** 设置换行自动退格数 **/
+    "editor.detectIndentation": false,   
+    "editor.tabSize": 4,
+    "prettier.tabWidth": 4,
+    "workbench.colorTheme": "Monokai",
+    "vetur.format.options.tabSize": 4,
+    "explorer.confirmDelete": false,
+
+    "fileheader.customMade": {
+        "Author":"tianbo",
+        "LastEditors": "tianbo",
+        "Date": "Do not edit",
+        "LastEditTime": "Do not edit",
+},
+"http.proxyStrictSSL": false,
+}   

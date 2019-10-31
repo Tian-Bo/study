@@ -1,0 +1,97 @@
+<!-- 
+    生命周期
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>生命周期</title>
+
+</head>
+<body>
+    <div id="app"></div>
+
+    <script src="../../plug/vue.js"></script>
+    <script>
+        // 创建 Vue 实例，得到视图模型
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'ok'
+            },
+            methods: {
+                show() {
+                    console.log('执行了show方法')
+                }
+            },
+            beforeCreate() {
+                console.log(this.msg, '==>beforeCreate')
+                this.show()
+                // 表示: 实例完全被创建出来之前，data 和 methods 中的 数据都还没有没初始化
+
+                // 主要操作: 
+
+                // 注意： 
+            },
+            created() {
+                console.log(this.msg, '==>created')
+                this.show()
+                // 表示: data 和 methods 都已经被初始化好了
+
+                // 主要操作: 
+
+                // 注意:
+            },
+            mounted() {
+                // 表示: 
+                console.log(this.msg, '==>mounted')
+                this.show()
+                // 表示: 内存中的模板，已经真实的挂载到了页面中，用户已经可以看到渲染好的页面了
+
+                // 主要操作: 
+
+                // 注意:
+            },
+            beforeUpdate() {
+                console.log(this.msg, '==>beforeUpdate')
+                this.show()
+                // 表示: 页面中显示的数据还是旧的，此时data中的数据是最新的，页面尚未和最新数据同步
+
+                // 主要操作: 
+
+                // 注意:
+            },
+            updated() {
+                console.log(this.msg, '==>updated')
+                this.show()
+                // 表示: 页面和data数据已经保持同步，都是最新的
+
+                // 主要操作: 
+
+                // 注意:
+            },
+            beforeDestroy() {
+                console.log(this.msg, '==>beforeDestroy')
+                this.show()
+                // 表示: Vue实例就已经从运行阶段进入销毁阶段，此时，组建中所有data、methods、以及过滤器，指令等，都处于可用状态，此时还未真正执行销毁过程
+
+                // 主要操作: 
+
+                // 注意:
+            },
+            deactivated() {
+                console.log(this.msg, '==>deactivated')
+                this.show()
+                // 表示: 组件已经被完全销毁，此时组建中所有data、methods、以及过滤器，指令等，都已经不可用了
+
+                // 主要操作: 
+
+                // 注意:
+            },
+        })
+    </script>
+</body>
+</html>

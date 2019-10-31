@@ -1,0 +1,37 @@
+<!-- 
+    根据经纬度, 获取腾讯地图地理位置详细信息
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>根据腾讯地图的key, 获取腾讯地图地理位置详细信息</title>
+</head>
+<body>
+    <div class="map-info"></div>
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        let resUrl = "http://apis.map.qq.com/ws/geocoder/v1";
+        let params = {
+            location: '26.690410,106.511078',
+            key: '3QDBZ-ILBKG-XNSQJ-ISXYB-WT4S2-LZFDS',
+            output: "jsonp"
+        };
+        $.get({
+            url: resUrl,
+            data: params,
+            dataType: 'jsonp',
+            success: res => { 
+                console.log(res)
+                console.log(res.result.address_component.province)
+                console.log(res.result.address_component.city)
+                console.log(res.result.address_component.district)
+                console.log(res.result.formatted_addresses.recommend);
+                $('.map-info').html(res)
+            }
+        })
+    </script>
+</body>
+</html>

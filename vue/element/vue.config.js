@@ -6,24 +6,35 @@ function resolve(dir) {
   return path.join(__dirname, dir)
 }
 
-const name = defaultSettings.title || 'vue Element Admin' // page title
+const name = defaultSettings.title || '小泡泡' // page title
 
-// If your port is set to 80,
-// use administrator privileges to execute the command line.
-// For example, Mac: sudo npm run
-// You can change the port by the following method:
-// port = 9527 npm run dev OR npm run dev --port = 9527
+//如果端口设置为80，
+
+//使用管理员权限执行命令行。
+
+//例如mac:sudo npm run
+
+//您可以通过以下方法更改端口：
+
+//端口=9527 npm运行开发或npm运行开发--端口=9527
 const port = process.env.port || process.env.npm_config_port || 9527 // dev port
 
-// All configuration item explanations can be find in https://cli.vuejs.org/config/
+//所有配置项解释都可以在https://cli.vuejs.org/config中找到/
 module.exports = {
-  /**
-   * You will need to set publicPath if you plan to deploy your site under a sub path,
-   * for example GitHub Pages. If you plan to deploy your site to https://foo.github.io/bar/,
-   * then publicPath should be set to "/bar/".
-   * In most cases please use '/' !!!
-   * Detail: https://cli.vuejs.org/config/#publicpath
-   */
+/**
+
+*如果计划在子路径下部署站点，则需要设置publicPath，
+
+*例如GitHub页面如果您计划将站点部署到https://foo.github.io/bar/，
+
+*那么publicpath应该设置为“/bar/”。
+
+*在大多数情况下，请使用“/”！！！！
+
+*详细信息：https://cli.vuejs.org/config/publicpath
+
+
+*/
   publicPath: '/',
   outputDir: 'dist',
   assetsDir: 'static',
@@ -37,8 +48,9 @@ module.exports = {
       errors: true
     },
     proxy: {
-      // change xxx-api/login => mock/login
-      // detail: https://cli.vuejs.org/config/#devserver-proxy
+//change xxx api/login=>模拟/登录
+
+//详细信息：https://cli.vuejs.org/config/#devserver proxy
       [process.env.VUE_APP_BASE_API]: {
         target: `http://127.0.0.1:${port}/mock`,
         changeOrigin: true,
@@ -50,8 +62,9 @@ module.exports = {
     after: require('./mock/mock-server.js')
   },
   configureWebpack: {
-    // provide the app's title in webpack's name field, so that
-    // it can be accessed in index.html to inject the correct title.
+//在webpack的name字段中提供应用程序的标题，以便
+
+//index.html中可以访问它来插入正确的标题。
     name: name,
     resolve: {
       alias: {
@@ -60,10 +73,10 @@ module.exports = {
     }
   },
   chainWebpack(config) {
-    config.plugins.delete('preload') // TODO: need test
-    config.plugins.delete('prefetch') // TODO: need test
+    config.plugins.delete('preload') //TODO:需要测试
+    config.plugins.delete('prefetch') //TODO:需要测试
 
-    // set svg-sprite-loader
+    //设置svg sprite加载程序
     config.module
       .rule('svg')
       .exclude.add(resolve('src/icons'))
@@ -80,7 +93,7 @@ module.exports = {
       })
       .end()
 
-    // set preserveWhitespace
+    //设置保留空白
     config.module
       .rule('vue')
       .use('vue-loader')
@@ -92,7 +105,6 @@ module.exports = {
       .end()
 
     config
-      // https://webpack.js.org/configuration/devtool/#development
       .when(process.env.NODE_ENV === 'development',
         config => config.devtool('cheap-source-map')
       )
@@ -104,7 +116,7 @@ module.exports = {
             .plugin('ScriptExtHtmlWebpackPlugin')
             .after('html')
             .use('script-ext-html-webpack-plugin', [{
-            // `runtime` must same as runtimeChunk name. default is `runtime`
+           //` runtime`必须与runtimechunk名称相同。默认值为“runtime”`
               inline: /runtime\..*\.js$/
             }])
             .end()
@@ -116,17 +128,17 @@ module.exports = {
                   name: 'chunk-libs',
                   test: /[\\/]node_modules[\\/]/,
                   priority: 10,
-                  chunks: 'initial' // only package third parties that are initially dependent
+                  chunks: 'initial'//仅打包最初依赖的第三方
                 },
                 elementUI: {
-                  name: 'chunk-elementUI', // split elementUI into a single package
-                  priority: 20, // the weight needs to be larger than libs and app or it will be packaged into libs or app
-                  test: /[\\/]node_modules[\\/]_?element-ui(.*)/ // in order to adapt to cnpm
+                  name: 'chunk-elementUI',//将elementui拆分为一个包
+                  priority: 20,//重量必须大于libs和app，否则将打包成libs或app
+                  test: /[\\/]node_modules[\\/]_?element-ui(.*)///为了适应CNPM
                 },
                 commons: {
                   name: 'chunk-commons',
-                  test: resolve('src/components'), // can customize your rules
-                  minChunks: 3, //  minimum common number
+                  test: resolve('src/components'),//可以自定义规则
+                  minChunks: 3,//最小公共数
                   priority: 5,
                   reuseExistingChunk: true
                 }

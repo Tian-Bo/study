@@ -2,7 +2,7 @@ import Vue from 'vue'
 
 import Cookies from 'js-cookie'
 
-import 'normalize.css/normalize.css' // a modern alternative to CSS resets
+import 'normalize.css/normalize.css' // CSS重置的现代替代方法
 
 import Element from 'element-ui'
 import './styles/element-variables.scss'
@@ -20,23 +20,22 @@ import './utils/error-log' // error log
 import * as filters from './filters' // global filters
 
 /**
- * If you don't want to use mock-server
- * you want to use MockJs for mock api
- * you can execute: mockXHR()
- *
- * Currently MockJs will be used in the production environment,
- * please remove it before going online! ! !
- */
+*如果不想使用模拟服务器
+*您想将MockJs用于mock api
+*您可以执行：mockxhr（）
+*目前mockjs将用于生产环境，
+*请在联机前将其删除！! !
+**/
 import { mockXHR } from '../mock'
 if (process.env.NODE_ENV === 'production') {
   mockXHR()
 }
 
 Vue.use(Element, {
-  size: Cookies.get('size') || 'medium' // set element-ui default size
+  size: Cookies.get('size') || 'medium' // 设置元素ui默认大小
 })
 
-// register global utility filters
+// 注册全局实用程序筛选器
 Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key])
 })

@@ -3,6 +3,8 @@
 > 这是一个vue admin。它包含了 Element UI & axios & iconfont。
 <!-- - [使用教程](https://juejin.im/post/59097cd7a22b9d0065fb61d2) -->
 
+## 常用命令
+
 ```bash
 
 # 启动服务

@@ -1,8 +1,18 @@
 # element-admin
 
-> 这是一个vue admin。它包含了 Element UI & axios & iconfont。
-<!-- - [使用教程](https://juejin.im/post/59097cd7a22b9d0065fb61d2) -->
+```bash
 
+vue
+Element UI
+axios
+iconfont
+vue-cli
+webpack
+vue-router
+vuex
+alias
+
+```
 ## 常用命令
 
 ```bash
@@ -64,7 +74,7 @@ npm run lint -- --fix
 
 ```
 
-## 开发约定
+## 项目介绍
 
 ```bash
     1, 随着业务的迭代，模块还会会越来越多。 所以这里建议根据业务模块来划分 views，并且 将views 和 api 两个模块一
@@ -85,3 +95,7 @@ npm run lint -- --fix
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari |
 | --------- | --------- | --------- | --------- |
 | IE10, IE11, Edge| last 2 versions| last 2 versions| last 2 versions
+
+
+<!-- - [使用教程](https://juejin.im/post/59097cd7a22b9d0065fb61d2) -->
+

@@ -1,5 +1,8 @@
 # element-admin
 
+这是一个商户后台系统.
+
+## 技术选型
 ```bash
 
 vue
@@ -11,6 +14,7 @@ webpack
 vue-router
 vuex
 alias
+ESLint
 
 ```
 ## 常用命令
@@ -74,7 +78,7 @@ npm run lint -- --fix
 
 ```
 
-## 项目介绍
+## 开发约定
 
 ```bash
     1, 随着业务的迭代，模块还会会越来越多。 所以这里建议根据业务模块来划分 views，并且 将views 和 api 两个模块一
@@ -86,6 +90,7 @@ npm run lint -- --fix
        存储data，每个页面里存放自己的 data 就行。当然有些数据还是需要用 vuex 来统一管理的，如登录token,用户信息，
        或者是一些全局个人偏好设置等，还是用vuex管理更加的方便，具体当然还是要结合自己的业务场景的。总之还是那句话，
        不要为了用vuex而用vuex！
+    4, axios
 ```
 
 ## 浏览器支持
@@ -97,5 +102,5 @@ npm run lint -- --fix
 | IE10, IE11, Edge| last 2 versions| last 2 versions| last 2 versions
 
 
-<!-- - [使用教程](https://juejin.im/post/59097cd7a22b9d0065fb61d2) -->
+<!-- - [使用教程](https://juejin.im/post/5c92ff94f265da6128275a85) -->
 

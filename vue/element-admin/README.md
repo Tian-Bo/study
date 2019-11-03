@@ -1,15 +1,7 @@
 # element-admin
 
 > 这是一个vue admin。它包含了 Element UI & axios & iconfont。
-
-
-
-## Extra
-
-写了一个系列的教程配套文章，如何从零构建后一个完整的后台项目:
-
-- [使用教程](https://juejin.im/post/59097cd7a22b9d0065fb61d2)
-
+<!-- - [使用教程](https://juejin.im/post/59097cd7a22b9d0065fb61d2) -->
 
 ```bash
 

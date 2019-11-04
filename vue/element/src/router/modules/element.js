@@ -14,8 +14,25 @@ export default [
       }
     ]
   },
+  // {
+  //     path: '/',
+  //     hidden: true,
+  //     component: () => import('@/views/home/index'),
+  // },
+  {
+    path: '/home',
+    hidden: true,
+    login: true,
+    meta: {
+      noNeedLogin: true
+    },
+    component: () => import('@/views/home/index')
+  },
   {
     path: '/login',
+    meta: {
+      noNeedLogin: true
+    },
     component: () => import('@/element-views/login/index'),
     hidden: true
   },
@@ -33,59 +50,59 @@ export default [
     path: '/401',
     component: () => import('@/element-views/error-page/401'),
     hidden: true
+  },
+  {
+    path: '/',
+    component: Layout,
+    redirect: '/dashboard',
+    children: [
+      {
+        path: 'dashboard',
+        component: () => import('@/element-views/dashboard/index'),
+        name: 'Dashboard',
+        meta: { title: 'Dashboard', icon: 'dashboard', affix: true }
+      }
+    ]
+  },
+  {
+    path: '/documentation',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/element-views/documentation/index'),
+        name: 'Documentation',
+        meta: { title: 'Documentation', icon: 'documentation', affix: true }
+      }
+    ]
   }
-  // {
-  //     path: '/',
-  //     component: Layout,
-  //     redirect: '/dashboard',
-  //     children: [
-  //     {
-  //         path: 'dashboard',
-  //         component: () => import('@/element-views/dashboard/index'),
-  //         name: 'Dashboard',
-  //         meta: { title: 'Dashboard', icon: 'dashboard', affix: true }
-  //     }
-  //     ]
-  // },
-  // {
-  //     path: '/documentation',
-  //     component: Layout,
-  //     children: [
-  //     {
-  //         path: 'index',
-  //         component: () => import('@/element-views/documentation/index'),
-  //         name: 'Documentation',
-  //         meta: { title: 'Documentation', icon: 'documentation', affix: true }
-  //     }
-  //     ]
-  // },
-  // {
-  //     path: '/guide',
-  //     component: Layout,
-  //     redirect: '/guide/index',
-  //     children: [
-  //     {
-  //         path: 'index',
-  //         component: () => import('@/element-views/guide/index'),
-  //         name: 'Guide',
-  //         meta: { title: 'Guide', icon: 'guide', noCache: true }
-  //     }
-  //     ]
-  // },
-  // {
-  //     path: '/profile',
-  //     component: Layout,
-  //     redirect: '/profile/index',
-  //     hidden: true,
-  //     children: [
-  //         {
-  //             path: 'index',
-  //             component: () => import('@/element-views/profile/index'),
-  //             name: 'Profile',
-  //             meta: { title: 'Profile', icon: 'user', noCache: true }
-  //         }
-  //     ]
-  // },
+  //   {
+  //       path: '/guide',
+  //       component: Layout,
+  //       redirect: '/guide/index',
+  //       children: [
+  //       {
+  //           path: 'index',
+  //           component: () => import('@/element-views/guide/index'),
+  //           name: 'Guide',
+  //           meta: { title: 'Guide', icon: 'guide', noCache: true }
+  //       }
+  //       ]
+  //   },
+  //   {
+  //       path: '/profile',
+  //       component: Layout,
+  //       redirect: '/profile/index',
+  //       hidden: true,
+  //       children: [
+  //           {
+  //               path: 'index',
+  //               component: () => import('@/element-views/profile/index'),
+  //               name: 'Profile',
+  //               meta: { title: 'Profile', icon: 'user', noCache: true }
+  //           }
+  //       ]
+  //   },
   // {
   //     path: '/table',
   //     component: Layout,

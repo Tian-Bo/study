@@ -57,3 +57,4 @@ let new_arr3 = arr3.filter(ele => {
 })
 
 console.log(new_arr3)
+console.log(arr3.includes('自定义表单'))

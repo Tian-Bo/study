@@ -7,13 +7,13 @@ Math.easeInOutQuad = function(t, b, c, d) {
   return -c / 2 * (t * (t - 2) - 1) + b
 }
 
-// requestAnimationFrame for Smart Animating http://goo.gl/sx5sts
+// 智能动画制作的请求动画帧http://goo.gl/sx5sts
 var requestAnimFrame = (function() {
   return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function(callback) { window.setTimeout(callback, 1000 / 60) }
 })()
 
 /**
- * Because it's so fucking difficult to detect the scrolling element, just move them all
+ * 因为很难检测到滚动元素，只要把它们全部移动
  * @param {number} amount
  */
 function move(amount) {
@@ -38,18 +38,18 @@ export function scrollTo(to, duration, callback) {
   let currentTime = 0
   duration = (typeof (duration) === 'undefined') ? 500 : duration
   var animateScroll = function() {
-    // increment the time
+    // 增加时间
     currentTime += increment
-    // find the value with the quadratic in-out easing function
+    // 用二次输入输出缓和函数求值
     var val = Math.easeInOutQuad(currentTime, start, change, duration)
-    // move the document.body
+    // 移动document.body
     move(val)
-    // do the animation unless its over
+    // 做动画除非它结束
     if (currentTime < duration) {
       requestAnimFrame(animateScroll)
     } else {
       if (callback && typeof (callback) === 'function') {
-        // the animation is done so lets callback
+        // 动画完成后，让回调
         callback()
       }
     }

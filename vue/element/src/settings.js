@@ -5,7 +5,7 @@ module.exports = {
    * @type {boolean} true | false
    * @description 是否显示设置右面板
    */
-  showSettings: true,
+  showSettings: false,
 
   /**
    * @type {boolean} true | false
@@ -17,13 +17,13 @@ module.exports = {
    * @type {boolean} true | false
    * @description 是否固定页眉
    */
-  fixedHeader: false,
+  fixedHeader: true,
 
   /**
    * @type {boolean} true | false
    * @description 是否在侧边栏中显示徽标
    */
-  sidebarLogo: false,
+  sidebarLogo: true,
 
   /**
    * @type {string | array} 'production' | ['production', 'development']

@@ -3,7 +3,7 @@
  */
 
 /**
- * Parse the time to string
+ * 分析字符串的时间
  * @param {(Object|string|number)} time
  * @param {string} cFormat
  * @returns {string | null}
@@ -36,7 +36,7 @@ export function parseTime(time, cFormat) {
   }
   const time_str = format.replace(/{([ymdhisa])+}/g, (result, key) => {
     const value = formatObj[key]
-    // Note: getDay() returns 0 on Sunday
+    // 注意：getDay（）在周日返回0
     if (key === 'a') { return ['日', '一', '二', '三', '四', '五', '六'][value ] }
     return value.toString().padStart(2, '0')
   })
@@ -110,7 +110,7 @@ export function getQueryObject(url) {
  * @returns {number} output value
  */
 export function byteLength(str) {
-  // returns the byte length of an utf8 string
+  // 返回utf8字符串的字节长度
   let s = str.length
   for (var i = str.length - 1; i >= 0; i--) {
     const code = str.charCodeAt(i)
@@ -180,7 +180,7 @@ export function html2Text(val) {
 }
 
 /**
- * Merges two objects, giving the last one precedence
+ * 合并两个对象，赋予最后一个优先级
  * @param {Object} target
  * @param {(Object|Array)} source
  * @returns {Object}
@@ -277,9 +277,9 @@ export function debounce(func, wait, immediate) {
 }
 
 /**
- * This is just a simple version of deep copy
- * Has a lot of edge cases bug
- * If you want to use a perfect deep copy, use lodash's _.cloneDeep
+ * 这只是deep copy的一个简单版本
+ * 有很多边缘案例错误
+ * 如果你想使用完美的深拷贝，请使用lodash的cloneDeep
  * @param {Object} source
  * @returns {Object}
  */
@@ -316,7 +316,7 @@ export function createUniqueString() {
 }
 
 /**
- * Check if an element has a class
+ * 检查元素是否有类
  * @param {HTMLElement} elm
  * @param {string} cls
  * @returns {boolean}
@@ -326,7 +326,7 @@ export function hasClass(ele, cls) {
 }
 
 /**
- * Add class to element
+ * 将类添加到元素
  * @param {HTMLElement} elm
  * @param {string} cls
  */
@@ -335,7 +335,7 @@ export function addClass(ele, cls) {
 }
 
 /**
- * Remove class from element
+ * 从元素中移除类
  * @param {HTMLElement} elm
  * @param {string} cls
  */

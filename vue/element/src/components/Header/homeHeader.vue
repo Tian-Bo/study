@@ -5,13 +5,13 @@
         <router-link to="/" class="logo11" />
         <ul class="menu">
           <div v-for="(item, index) in list" :key="index">
-            <li v-if="index == 0">
+            <li v-if="index==0">
               <router-link :to="item.route" target="_self" style="position:relative">
                 {{ item.text }}
-                <img src="../assets/img/01.png" class="sY_img">
+                <img src="@/assets/img/01.png" class="sY_img">
               </router-link>
             </li>
-            <li v-else-if="index == 5" style="border:none;border-radius:0px 5px 5px 0px;">
+            <li v-else-if="index==5" style="border:none; border-radius: 0px 5px 5px 0px;">
               <router-link :to="item.route" target="_self">{{ item.text }}</router-link>
             </li>
             <li v-else>
@@ -68,7 +68,7 @@ export default {
     height: 94px;
     background: rgba(0, 0, 0, 0.3);
     z-index: 100;
-    background-image: url(../assets/img/01.png);
+    background-image: url("../../assets/img/01.png");
 }
 
 .header .nav {
@@ -84,7 +84,7 @@ export default {
     height: 100%;
     width: 415px;
     background-repeat: no-repeat;
-    background-image: url(../assets/img/01.png);
+    background-image: url("../../assets/img/01.png");
     background-position: left center;
 }
 
@@ -155,7 +155,7 @@ export default {
     width: 415px;
     transform: scale(1.3);
     background-repeat: no-repeat;
-    background-image: url(../assets/img/logo.png);
+    background-image: url("../../assets/img/logo.png");
     position: relative;
     top: -10px;
     left: 200px;

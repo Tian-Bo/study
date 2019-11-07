@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import homeHeader from '@/layout/homeHeader'
+import homeHeader from '@/components/Header/homeHeader'
 export default {
   components: {
     homeHeader

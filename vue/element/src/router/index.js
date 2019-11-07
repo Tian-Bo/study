@@ -29,9 +29,9 @@ import store from './modules/store'
 
 //  所有可访问组件
 export const constantRoutes = [
-  ...element,
   ...basics,
-  { path: '*', redirect: '/404', hidden: true }
+  ...element
+//   { path: '*', redirect: '/404', hidden: true }
 ]
 
 // 针对性用户可访问路由

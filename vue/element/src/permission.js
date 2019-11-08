@@ -23,7 +23,7 @@ router.beforeEach(async(to, from, next) => {
   if (hasToken) {
     if (to.path === '/login') {
       // 如果已登录，请重定向到主页
-      next({ path: '/' })
+      next({ path: '/general' })
       NProgress.done()
     } else {
       // 确定用户是否已通过getInfo获得其权限角色

@@ -6,7 +6,7 @@
       <div class="body-item">
         <label for>手机号:</label>
         <div class="body-item-right-l">18580557309</div>
-        <router-link class="body-item-right-r" tag="div" to="/account_password">修改密码</router-link>
+        <router-link class="body-item-right-r" tag="div" to="/account-password">修改密码</router-link>
       </div>
       <div class="body-item">
         <label for>绑定微信:</label>

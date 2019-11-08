@@ -81,20 +81,19 @@ const actions = {
   // user logout
   logout({ commit, state, dispatch }) {
     return new Promise((resolve, reject) => {
-      logout(state.token).then(() => {
-        commit('SET_TOKEN', '')
-        commit('SET_ROLES', [])
-        removeToken()
-        resetRouter()
+      // logout(state.token).then(() => {
+      commit('SET_TOKEN', '')
+      commit('SET_ROLES', [])
+      removeToken()
+      resetRouter()
 
-        // 重置访问的视图和缓存的视图
-        // to fixed https://github.com/PanJiaChen/vue-element-admin/issues/2485
-        dispatch('tagsView/delAllViews', null, { root: true })
+      // 重置访问的视图和缓存的视图
+      dispatch('tagsView/delAllViews', null, { root: true })
 
-        resolve()
-      }).catch(error => {
-        reject(error)
-      })
+      resolve()
+      // }).catch(error => {
+      //     reject(error)
+      // })
     })
   },
 

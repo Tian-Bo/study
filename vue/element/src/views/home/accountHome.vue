@@ -9,7 +9,7 @@
           </div>
           <div class="header-lt-name">18580557309</div>
         </div>
-        <router-link tag="div" class="header-rt" to="/account_setting">账号设置</router-link>
+        <router-link tag="div" class="header-rt" to="/account-setting">账号设置</router-link>
       </div>
       <div class="main">
         <div class="main-title">知识店铺(1)</div>

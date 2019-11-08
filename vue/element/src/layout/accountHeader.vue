@@ -10,19 +10,19 @@
       <div class="body-item">
         <span class="body-item-tel">+86 18580557309</span>
 
-        <router-link v-if="state1==1" class="body-item-link" tag="a" to="" @click.native="closeLogin">退出</router-link>
-        <router-link v-if="state1==2" class="body-item-link" tag="a" to="/account_home">账号主页</router-link>
+        <router-link v-if="state1==1" class="body-item-link" tag="a" to @click.native="logout">退出</router-link>
+        <router-link v-if="state1==2" class="body-item-link" tag="a" to="/account-home">账号主页</router-link>
         <router-link v-if="state1==3" class="body-item-link" tag="a" to>返回</router-link>
         <router-link v-if="state1==4" class="body-item-link" tag="a" to>备份</router-link>
         <router-link v-if="state1==5" class="body-item-link" tag="a" to>备份</router-link>
 
-        <router-link v-if="state2==1" class="body-item-link" tag="a" to>退出</router-link>
+        <router-link v-if="state2==1" class="body-item-link" tag="a" to @click.native="logout">退出</router-link>
         <router-link v-if="state2==2" class="body-item-link" tag="a" to>账户主页</router-link>
         <router-link v-if="state2==3" class="body-item-link" tag="a" to>返回</router-link>
         <router-link v-if="state2==4" class="body-item-link" tag="a" to>备份</router-link>
         <router-link v-if="state2==5" class="body-item-link" tag="a" to>备份</router-link>
 
-        <router-link v-if="state3==1" class="body-item-link" tag="a" to>退出</router-link>
+        <router-link v-if="state3==1" class="body-item-link" tag="a" to @click.native="logout">退出</router-link>
         <router-link v-if="state3==2" class="body-item-link" tag="a" to>账户主页</router-link>
         <router-link v-if="state3==3" class="body-item-link" tag="a" to>返回</router-link>
         <router-link v-if="state3==4" class="body-item-link" tag="a" to>备份</router-link>
@@ -57,9 +57,9 @@ export default {
   },
   methods: {
     // 退出登陆
-    closeLogin() {
-      window.sessionStorage.removeItem('token')
-      this.$router.push({ path: '/login' })
+    async logout() {
+      await this.$store.dispatch('user/logout')
+      this.$router.push(`/login?redirect=${this.$route.fullPath}`)
     }
     // 账户主页
   }
@@ -99,6 +99,9 @@ export default {
         }
         .body-item-link {
             margin: 0 10px;
+        }
+        .body-item-link:hover{
+            color: #409eff;
         }
     }
 }

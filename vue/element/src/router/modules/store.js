@@ -17,7 +17,6 @@ export default [{
 },
 {
   path: '/create',
-  name: '创作中心',
   component: Layout,
   redirect: '/create/primary',
   meta: {
@@ -33,7 +32,7 @@ export default [{
     }
   },
   {
-    path: '/intermediate',
+    path: 'intermediate',
     name: '中级玩法',
     component: () => import('@/views/creation/intermediate'),
     meta: {
@@ -41,7 +40,7 @@ export default [{
     }
   },
   {
-    path: '/senior',
+    path: 'senior',
     name: '高级玩法',
     component: () => import('@/views/creation/intermediate'),
     meta: {
@@ -117,15 +116,72 @@ export default [{
 {
   path: '/service',
   component: Layout,
+  redirect: '/service/index',
+  meta: {
+    title: '服务中心',
+    icon: 'create'
+  },
   children: [{
-    path: '',
+    path: 'index',
     name: '服务中心',
     component: () => import('@/views/general/index'),
     meta: {
       title: '服务中心',
       icon: 'service'
     }
-  }]
+  },
+  {
+    path: 'aaa',
+    name: '服务中心',
+    component: () => import('@/views/general/index'),
+    redirect: 'aaa/bbb',
+    meta: {
+      title: '服务中心2',
+      icon: 'service'
+    },
+    children: [
+      {
+        path: 'bbb',
+        name: '服务中心',
+        component: () => import('@/views/general/index'),
+        meta: {
+          title: '服务中心3',
+          icon: 'service'
+        }
+      },
+      {
+        path: 'ccc',
+        name: '服务中心',
+        component: () => import('@/views/general/index'),
+        meta: {
+          title: '服务中心3',
+          icon: 'service'
+        },
+        children: [
+          {
+            path: 'ddd',
+            name: '服务中心',
+            component: () => import('@/views/general/index'),
+            meta: {
+              title: '服务中心3',
+              icon: 'service'
+            }
+          },
+          {
+            path: 'rrr',
+            name: '服务中心',
+            component: () => import('@/views/general/index'),
+            meta: {
+              title: '服务中心3',
+              icon: 'service'
+            }
+          }
+        ]
+      }
+
+    ]
+  }
+  ]
 },
 {
   path: '/setting',

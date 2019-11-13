@@ -24,36 +24,36 @@ export default {
 
 <style lang="scss" scoped>
 .app-main {
-  /* 50= navbar  50  */
-  min-height: calc(100vh - 50px);
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-  padding: 15px;
-  background-color: #f5f7fa;
+    /* 50= navbar  50  */
+    min-height: calc(100vh - 50px);
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    padding: 15px;
+    background-color: #f5f7fa;
 }
 
-.fixed-header+.app-main {
-  padding-top: 60px;
+.fixed-header + .app-main {
+    padding-top: 60px;
 }
 
 .hasTagsView {
-  .app-main {
-    /* 84 = navbar + tags-view = 50 + 34 */
-    min-height: calc(100vh - 84px);
-  }
+    .app-main {
+        /* 84 = navbar + tags-view = 50 + 34 */
+        min-height: calc(100vh - 84px);
+    }
 
-  .fixed-header+.app-main {
-    padding-top: 84px;
-  }
+    .fixed-header + .app-main {
+        padding-top: 84px;
+    }
 }
 </style>
 
 <style lang="scss">
 // fix css style bug in open el-dialog
 .el-popup-parent--hidden {
-  .fixed-header {
-    padding-right: 15px;
-  }
+    .fixed-header {
+        padding-right: 15px;
+    }
 }
 </style>

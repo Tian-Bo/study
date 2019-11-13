@@ -29,9 +29,11 @@ router.beforeEach(async(to, from, next) => {
       // 确定用户是否已通过getInfo获得其权限角色
       const hasRoles = store.getters.roles && store.getters.roles.length > 0
       if (hasRoles) {
+        console.log('111')
         next()
       } else {
         try {
+          console.log(to)
           // 获取用户信息
           // 注意：角色必须是对象数组例如：['admin']或，['developer'，'editor']
           const { roles } = await store.dispatch('user/getInfo')

@@ -3,7 +3,7 @@
     <div class="body">
       <div class="body-item">
         <div class="body-item-logo">
-          <img src="../assets/img/logo.png" alt>
+          <img src="@/assets/img/logo.png" alt>
         </div>
         <span class="body-item-title">{{ title }}</span>
       </div>
@@ -91,8 +91,8 @@ export default {
                     height: 100%;
                 }
             }
-            .body-item-title {
-            }
+            // .body-item-title {
+            // }
         }
         .body-item-tel {
             margin-right: 15px;

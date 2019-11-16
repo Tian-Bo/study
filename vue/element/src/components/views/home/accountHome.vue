@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import accountHeader from '@/layouts/accountHeader'
+import accountHeader from '@/components/Header/accountHeader'
 export default {
   components: {
     accountHeader

@@ -17,7 +17,7 @@
         <label for>头像:</label>
         <div class="body-item-right-l">
           <div class="body-item-headimg">
-            <img src="../../assets/img/logo.png" alt>
+            <img src="@/assets/img/logo.png" alt>
           </div>
         </div>
         <div class="body-item-right-r">上传</div>
@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import accountHeader from '@/layout/accountHeader'
+import accountHeader from '@/components/Header/accountHeader'
 export default {
   components: {
     accountHeader

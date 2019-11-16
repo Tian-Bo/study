@@ -2,9 +2,8 @@ import axios from 'axios'
 import { MessageBox, Message } from 'element-ui'
 import store from '@/store'
 import { getToken } from '@/utils/auth'
-console.log(process.env.VUE_APP_BASE_API)
 // 创建一个AXIOS实例
-const service = axios.create({
+const AJAX = axios.create({
   baseURL: process.env.VUE_APP_BASE_API, // url = base url + request url
   // 带凭据：真,
   // 跨域请求时发送cookies
@@ -12,10 +11,9 @@ const service = axios.create({
 })
 
 // 请求拦截器
-service.interceptors.request.use(
+AJAX.interceptors.request.use(
   config => {
     // 在发出请求前做点什么
-
     if (store.getters.token) {
       // 让每个请求携带令牌
       // ['X-Token']是自定义头密钥
@@ -33,8 +31,8 @@ service.interceptors.request.use(
   }
 )
 
-// response interceptor
-service.interceptors.response.use(
+// 响应拦截器
+AJAX.interceptors.response.use(
   /**
    * 如果您想获取诸如头或状态之类的http信息
    * P租约返回响应=>响应
@@ -85,4 +83,40 @@ service.interceptors.response.use(
   }
 )
 
-export default service
+// export default AJAX
+
+// 定义对外Get、Post、File请求
+export default {
+  get(url, param = {}, headers = {}) {
+    return AJAX.get(url, {
+      params: param,
+      headers
+    })
+  },
+  post(url, param = null, headers = {}) {
+    return AJAX.post(url, param, {
+      headers
+    })
+  },
+  put(url, param = null, headers = {}) {
+    return AJAX.put(url, param, {
+      headers
+    })
+  },
+  file(url, param = null, headers = {}) {
+    return AJAX.post(url, param, {
+      headers: Object.assign({
+        'Content-Type': 'multipart/form-data'
+      }, headers)
+    })
+  },
+  delete(url, param = null, headers = {}) {
+    return AJAX.delete(url, {
+      param,
+      headers: Object.assign({
+        'Content-Type': 'multipart/form-data'
+      }, headers)
+    })
+  }
+}
+

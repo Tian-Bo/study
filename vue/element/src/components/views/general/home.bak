@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-        <img @click="openDialog" alt="Vue logo" src="../../assets/logo.png">
+        <img @click="openDialog" alt="Vue logo" src="@/assets/img/logo.png">
         <HelloWorld msg="Welcome to Your Vue.js App"/>
         <p @click="changeUserInfo(233)">
             vuex示例：

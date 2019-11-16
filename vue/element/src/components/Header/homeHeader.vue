@@ -84,7 +84,7 @@ export default {
     height: 100%;
     width: 415px;
     background-repeat: no-repeat;
-    background-image: url("../../assets/img/01.png");
+    background-image: url("/assets/img/01.png");
     background-position: left center;
 }
 
@@ -155,7 +155,7 @@ export default {
     width: 415px;
     transform: scale(1.3);
     background-repeat: no-repeat;
-    background-image: url("../../assets/img/logo.png");
+    background-image: url("/assets/img/logo.png");
     position: relative;
     top: -10px;
     left: 200px;

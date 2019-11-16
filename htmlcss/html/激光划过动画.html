@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+.img { 
+    display: block; 
+    position: relative; 
+    height: 30px; 
+    width: 300px;
+    color: red;
+    overflow: hidden;
+}
+.img:before { 
+    content: ""; 
+    position: absolute; 
+    width: 60px; 
+    height: 100%; 
+    animation: 3s rotate linear infinite;
+    top: 0; 
+    overflow: hidden;
+    background: -moz-linear-gradient(left, rgba(255, 255, 255, 0)0, rgba(255, 255, 255, .6)50%, rgba(255,255,255,0)100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(255,255,255,0)), color-stop(50%, rgba(255,255,255,.6)), color-stop(100%, rgba(255,255,255,0)));
+    background: -webkit-linear-gradient(left, rgba(255,255,255,0)0, rgba(255,255,255,.6)50%, rgba(255,255,255,0)100%);
+    background: -o-linear-gradient(left, rgba(255,255,255,0)0, rgba(255,255,255,.6)50%, rgba(255,255,255,0)100%);
+    -webkit-transform: skewX(-25deg);
+    -moz-transform: skewX(-25deg)
+}
+
+@keyframes rotate {
+	0% {
+        left: -30px;
+	}
+	100% {
+		left: 110%;
+	}
+}
+
+
+</style>
+<body>
+    <div class="img">节日活动比平时参与量高3-5倍！</div>
+</body>
+</html>

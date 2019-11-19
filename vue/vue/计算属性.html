@@ -1,0 +1,61 @@
+<!-- 
+    模板语法
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title>模板语法</title>
+ </head>
+ <body>
+     <div id="app">
+         <p>{{ name }}</p>
+         <p>{{ age }}</p>
+         <p>{{ sex }}</p>
+         <p>{{ dom }}</p>
+     </div>
+ 
+     <script src="../../plug/vue.js"></script>
+     <script>
+         let vm = new Vue({
+             el: '#app',
+             data() {
+                 return {
+                     name: '中国',
+                     age: 15,
+                     sex: '男',
+                     one: 1,
+                     two: 2,
+                     three: 3,
+                 }
+             },
+             computed: {
+                dom: {
+                    get() {
+                        console.log('123456')
+                        return this.one + this.two
+                    },
+                    set(val) {
+                        console.log(val, 'val') 
+                        this.one = 1
+                        this.two = 2
+                        this.three = val
+                    }
+                }
+             },
+             created() {
+                setInterval(res => {
+                    this.two += 1
+                    console.log(this.one, this.two, this.three)
+                    this.dom += 10;
+                }, 3000)
+             },
+             methods: {
+                 
+             }
+         })
+     </script>
+ </body>
+ </html>

@@ -48,29 +48,29 @@ const actions = {
   getInfo({ commit, state }) {
     return new Promise((resolve, reject) => {
       getInfo(state.token).then(response => {
-        // const { data } = response
-        const data = {
-          roles: ['admin'],
-          introduction: 'I am a super administrator',
-          avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
-          name: 'Super Admin'
-        }
+        const { data } = response
+        // const data = {
+        //   roles: ['admin'],
+        //   introduction: 'I am a super administrator',
+        //   avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
+        //   name: 'Super Admin'
+        // }
 
         if (!data) {
           reject('Verification failed, please Login again.')
         }
 
-        const { roles, name, avatar, introduction } = data
+        const { user_roles, user_name, user_header_img, introduction } = data
 
         // 角色必须是非空数组
         if (!roles || roles.length <= 0) {
           reject('getInfo: roles must be a non-null array!')
         }
 
-        commit('SET_ROLES', roles)
-        commit('SET_NAME', name)
-        commit('SET_AVATAR', avatar)
-        commit('SET_INTRODUCTION', introduction)
+        commit('SET_ROLES', Array(user_roles))
+        commit('SET_NAME', user_name)
+        commit('SET_AVATAR', user_header_img)
+        commit('SET_INTRODUCTION', user_name)
         resolve(data)
       }).catch(error => {
         reject(error)

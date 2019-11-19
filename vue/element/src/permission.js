@@ -23,7 +23,7 @@ router.beforeEach(async(to, from, next) => {
   if (hasToken) {
     if (to.path === '/login') {
       // 如果已登录，请重定向到主页
-      next({ path: '/general' })
+      next({ path: '/login' })
       NProgress.done()
     } else {
       // 确定用户是否已通过getInfo获得其权限角色
@@ -34,10 +34,9 @@ router.beforeEach(async(to, from, next) => {
         try {
           // 获取用户信息
           // 注意：角色必须是对象数组例如：['admin']或，['developer'，'editor']
-          const { roles } = await store.dispatch('user/getInfo')
-
+          const { user_roles } = await store.dispatch('user/getInfo')
           // 基于角色生成可访问路由图
-          const accessRoutes = await store.dispatch('permission/generateRoutes', roles)
+          const accessRoutes = await store.dispatch('permission/generateRoutes', user_roles)
 
           // 动态添加可访问路由
           router.addRoutes(accessRoutes)

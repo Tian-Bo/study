@@ -1,45 +1,46 @@
 <template>
-  <div class="container main-box">
-    <div class="header">
-      <div v-for="item in headerList" :key="item" class="header-item">{{ item.text }}</div>
-    </div>
-    <ul class="main">
-      <li v-for="item in activeList" :key="item" class="main-item">
-        <div class="main-item-cont">
-          <img :src="item.active_model_img">
-          <span class="ellipsis">{{ item.active_model_desc }}</span>
+    <div class="container main-box">
+        <div class="header">
+            <div v-for="item in headerList" :key="item" class="header-item">{{ item.text }}</div>
         </div>
-      </li>
-    </ul>
-  </div>
+        <ul class="main">
+            <li v-for="item in activeList" :key="item" class="main-item">
+                <div class="main-item-cont">
+                    <img :src="item.active_model_img" />
+                    <span class="ellipsis">{{ item.active_model_desc }}</span>
+                </div>
+            </li>
+        </ul>
+    </div>
 </template>
 
 <script>
-import { getActiveModel } from "@/api/active"
+import { getActiveModel } from "@/api/active";
 export default {
-  data() {
-    return {
-      headerList: [
-        { text: '组队拼团', id: 1 },
-        { text: '拓客红包', id: 2 },
-        { text: '商家门店', id: 3 }
-      ],
-      // 活动列表
-      activeList: []
+    data() {
+        return {
+            headerList: [
+                { text: "手机H5", id: 1 },
+                { text: "APP", id: 2 },
+                { text: "电脑网页端", id: 3 },
+                { text: "电脑桌面端", id: 4 }
+            ],
+            // 活动列表
+            activeList: []
+        };
+    },
+    created() {
+        this.getActiveModelIno();
+    },
+    methods: {
+        getActiveModelIno() {
+            getActiveModel().then(res => {
+                console.log(res);
+                this.activeList = res.data;
+            });
+        }
     }
-  },
-  created() {
-      this.getActiveModelIno()
-  },
-  methods: {
-      getActiveModelIno() {
-          getActiveModel().then(res => {
-              console.log(res)
-              this.activeList = res.data
-          })
-      }
-  },
-}
+};
 </script>
 
 <style lang='scss' scoped>
@@ -73,7 +74,7 @@ export default {
             position: relative;
             border: 1px solid #eee;
             cursor: pointer;
-            ::after{
+            ::after {
                 content: "立即创建";
                 position: absolute;
                 opacity: 0;
@@ -84,7 +85,7 @@ export default {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                background: rgba(0, 0, 0, .5);
+                background: rgba(0, 0, 0, 0.5);
                 font-size: 18px;
                 color: #fff;
             }
@@ -115,10 +116,9 @@ export default {
             }
         }
         .main-item-cont:hover {
-            ::after{
+            ::after {
                 opacity: 1;
             }
-
         }
     }
 }

@@ -4,13 +4,10 @@
       <div v-for="item in headerList" :key="item" class="header-item">{{ item.text }}</div>
     </div>
     <ul class="main">
-      <li v-for="item in mainList" :key="item" class="main-item">
+      <li v-for="item in activeList" :key="item" class="main-item">
         <div class="main-item-cont">
-          <img :src="item.img">
-          <span class="ellipsis">{{ item.text }}</span>
-          <div v-if="item.status==0">
-            <span>正在开发中...</span>
-          </div>
+          <img :src="item.active_model_img">
+          <span class="ellipsis">{{ item.active_model_desc }}</span>
         </div>
       </li>
     </ul>
@@ -18,6 +15,7 @@
 </template>
 
 <script>
+import { getActiveModel } from "@/api/active"
 export default {
   data() {
     return {
@@ -26,46 +24,21 @@ export default {
         { text: '拓客红包', id: 2 },
         { text: '商家门店', id: 3 }
       ],
-      mainList: [
-        {
-          img: '@/assets/img/indexBg.jpg',
-          text: '组队拼团组队拼团组队拼团组队拼团组队拼团组队拼团组队拼团组队拼团组队拼团组队拼团组队拼团组队拼团组队拼团',
-          status: 1,
-          id: 1
-        },
-        {
-          img: '@/assets/img/indexBg.jpg',
-          text: '拓客红包',
-          status: 0,
-          id: 2
-        },
-        {
-          img: '@/assets/img/indexBg.jpg',
-          text: '商家门店',
-          status: 1,
-          id: 3
-        },
-        {
-          img: '@/assets/img/indexBg.jpg',
-          text: '组队拼团',
-          status: 1,
-          id: 1
-        },
-        {
-          img: '@/assets/img/indexBg.jpg',
-          text: '拓客红包',
-          status: 0,
-          id: 2
-        },
-        {
-          img: '@/assets/img/indexBg.jpg',
-          text: '商家门店',
-          status: 1,
-          id: 3
-        }
-      ]
+      // 活动列表
+      activeList: []
     }
-  }
+  },
+  created() {
+      this.getActiveModelIno()
+  },
+  methods: {
+      getActiveModelIno() {
+          getActiveModel().then(res => {
+              console.log(res)
+              this.activeList = res.data
+          })
+      }
+  },
 }
 </script>
 
@@ -99,6 +72,22 @@ export default {
             height: 100%;
             position: relative;
             border: 1px solid #eee;
+            cursor: pointer;
+            ::after{
+                content: "立即创建";
+                position: absolute;
+                opacity: 0;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: rgba(0, 0, 0, .5);
+                font-size: 18px;
+                color: #fff;
+            }
             img {
                 width: 100%;
                 height: 70%;
@@ -124,6 +113,12 @@ export default {
                 display: flex;
                 align-items: center;
             }
+        }
+        .main-item-cont:hover {
+            ::after{
+                opacity: 1;
+            }
+
         }
     }
 }

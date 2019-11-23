@@ -22,9 +22,7 @@ export default {
   data() {
     return {
       headerList: [
-        { text: '组队拼团', id: 1 },
-        { text: '拓客红包', id: 2 },
-        { text: '商家门店', id: 3 }
+        { text: '基础模板', id: 1 }
       ],
       mainList: [
         {

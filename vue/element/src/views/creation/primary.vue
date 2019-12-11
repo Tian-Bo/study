@@ -1,16 +1,22 @@
 <template>
-  <div class="container main-box">
+  <div class="layout-cont">
+    <!-- header -->
     <div class="header">
-      <div v-for="item in headerList" :key="item" class="header-item">{{ item.text }}</div>
+      <div
+        v-for="(item, index) in headerList"
+        :key="index"
+        class="header-item"
+        :class="{ 'active': tabIndex == index }"
+        @click="handleTab(index, item)"
+      >{{ item.text }}</div>
     </div>
+
+    <!-- main -->
     <ul class="main">
-      <li v-for="item in mainList" :key="item" class="main-item">
+      <li v-for="(item, index) in activeList" :key="index" class="main-item" @click="handleRoute(item)">
         <div class="main-item-cont">
-          <img :src="item.img">
-          <span class="ellipsis">{{ item.text }}</span>
-          <div v-if="item.status==0">
-            <span>正在开发中...</span>
-          </div>
+          <img :src="item.model_img">
+          <span class="ellipsis">{{ item.model_desc }}</span>
         </div>
       </li>
     </ul>
@@ -18,72 +24,72 @@
 </template>
 
 <script>
+import { getActiveModel } from '@/api/active'
 export default {
   data() {
     return {
+      tabIndex: 0,
+      // 顶部列表
       headerList: [
-        { text: '基础模板', id: 1 }
+        { text: '手机H5', id: 1 },
+        { text: 'APP', id: 2 },
+        { text: '电脑网页端', id: 3 },
+        { text: '电脑桌面端', id: 4 }
       ],
-      mainList: [
-        {
-          img: '@/assets/img/indexBg.jpg',
-          text: '组队拼团组队拼团组队拼团组队拼团组队拼团组队拼团组队拼团组队拼团组队拼团组队拼团组队拼团组队拼团组队拼团',
-          status: 1,
-          id: 1
-        },
-        {
-          img: '@/assets/img/indexBg.jpg',
-          text: '拓客红包',
-          status: 0,
-          id: 2
-        },
-        {
-          img: '@/assets/img/indexBg.jpg',
-          text: '商家门店',
-          status: 1,
-          id: 3
-        },
-        {
-          img: '@/assets/img/indexBg.jpg',
-          text: '组队拼团',
-          status: 1,
-          id: 1
-        },
-        {
-          img: '@/assets/img/indexBg.jpg',
-          text: '拓客红包',
-          status: 0,
-          id: 2
-        },
-        {
-          img: '@/assets/img/indexBg.jpg',
-          text: '商家门店',
-          status: 1,
-          id: 3
-        }
-      ]
+      // 活动列表
+      activeList: []
+    }
+  },
+  created() {
+    this.getActiveModelIno()
+  },
+  methods: {
+    // 切换tab
+    handleTab(index, item) {
+      this.tabIndex = index
+    },
+    // 条件编辑活动
+    handleRoute(item) {
+      this.$router.push({ path: '/create', query: { model_id: item.model_id }})
+    },
+    // 获取活动模型
+    getActiveModelIno() {
+      getActiveModel().then(res => {
+        console.log(res)
+        this.activeList = res.data
+      })
     }
   }
 }
 </script>
 
 <style lang='scss' scoped>
-.container {
-    padding: 0;
-}
+// header
 .header {
-    height: 60px;
+    height: 50px;
     background-color: #eee;
     display: flex;
     align-items: center;
     .header-item {
-        margin: 0 15px;
+        height: 100%;
+        width: 100px;
+        text-align: center;
+        padding: 0 15px;
+        margin: 0 5px;
+        line-height: 50px;
         cursor: pointer;
     }
     .header-item:hover {
         color: #409eff;
+        border-bottom: 2px solid #409eff;
+    }
+    .active {
+        color: #409eff;
+        border-bottom: 2px solid #409eff;
     }
 }
+
+// main
 .main {
     display: flex;
     flex-wrap: wrap;
@@ -97,6 +103,22 @@ export default {
             height: 100%;
             position: relative;
             border: 1px solid #eee;
+            cursor: pointer;
+            ::after {
+                content: "立即创建";
+                position: absolute;
+                opacity: 0;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: rgba(0, 0, 0, 0.5);
+                font-size: 18px;
+                color: #fff;
+            }
             img {
                 width: 100%;
                 height: 70%;
@@ -121,6 +143,11 @@ export default {
                 text-align: center;
                 display: flex;
                 align-items: center;
+            }
+        }
+        .main-item-cont:hover {
+            ::after {
+                opacity: 1;
             }
         }
     }

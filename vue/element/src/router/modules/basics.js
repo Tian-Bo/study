@@ -87,7 +87,7 @@ export default [
     meta: {
       noNeedLogin: true
     },
-    component: () => import('@/views/login/index'),
+    component: () => import('@/views/auth/login'),
     hidden: true
   },
   {
@@ -96,7 +96,7 @@ export default [
     meta: {
       noNeedLogin: true
     },
-    component: () => import('@/views/home/register')
+    component: () => import('@/views/auth/register')
   },
   {
     path: '/account-home',

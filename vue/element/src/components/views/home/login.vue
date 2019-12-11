@@ -80,7 +80,7 @@ export default {
       postLogin(params).then(res => {
         if (res.status === 0) {
           window.sessionStorage.setItem('token', res.data.token)
-          return this.$router.push({ path: '/general' })
+          return this.$router.push({ path: '/account-home' })
         }
         this.$message.error(res.message)
       })

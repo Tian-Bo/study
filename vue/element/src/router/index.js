@@ -7,6 +7,7 @@ Vue.use(Router)
 import element from './modules/element'
 import basics from './modules/basics'
 import store from './modules/store'
+import create from './modules/create'
 
 /**
  * Note: 子菜单默认仅在route children.length>=1时出现
@@ -30,7 +31,8 @@ import store from './modules/store'
 //  所有可访问组件
 export const constantRoutes = [
   ...basics,
-  ...element
+  ...element,
+  ...create
 //   { path: '*', redirect: '/404', hidden: true }
 ]
 

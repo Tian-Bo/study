@@ -16,12 +16,12 @@ export default [{
   }]
 },
 {
-  path: '/create',
+  path: '/creation',
   component: Layout,
-  redirect: '/create/primary',
+  redirect: '/creation/primary',
   meta: {
     title: '创作中心',
-    icon: 'create'
+    icon: 'creation'
   },
   children: [{
     path: 'primary',
@@ -119,7 +119,7 @@ export default [{
   redirect: '/service/index',
   meta: {
     title: '服务中心',
-    icon: 'create'
+    icon: 'service'
   },
   children: [{
     path: 'index',

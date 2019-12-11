@@ -215,7 +215,7 @@ export default {
             .dispatch('user/login', this.loginForm)
             .then(() => {
               this.$router.push({
-                path: this.redirect || '/general',
+                path: this.redirect || '/account-home',
                 query: this.otherQuery
               })
               this.loading = false
